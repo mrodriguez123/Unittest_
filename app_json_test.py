@@ -1,3 +1,4 @@
+from flask import Flask
 import app_json
 
 def test_index_post():
