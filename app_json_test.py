@@ -1,21 +1,29 @@
+import unittest
+import pytest
 import app_json
+from flask import Flask, request
 
-def test_index_post():
-    app = Flask(__name__)
-    client = app_json.test_client()
-    url = '/'
-    response= client.get(url)
 
-    assert response.get_data() == { "name": " Monica",
-    "school": " University of Wisconsin",
-    "sports": " rowing" }
-    assert response.status_code == 200
+dictionary= { "name": " Monica",
+    	"school": " University of Wisconsin",
+    	"sports": " rowing" }
 
-def test_index_get():
-	app = Flask(__name__)
-	client = app_json.test_client()
-	url = '/get'
-	response= client.get(url) 
+class TestMain(unittest.TestCase):
 
-	assert response.get_data() == {"key":[0,1,2,3]}
-	assert response.status_code == 200
+	def test_index_post(self):
+    		app = Flask(__name__)
+    		client = app.test_client()
+    		url = '/'
+    		response= client.get(url)
+
+    		self.assertEqual(response.get_data(), dictionary)
+    		self.assertEqual(response.status_code, 200)
+
+	def test_index_get(self):
+			app = Flask(__name__)
+			client = app_json.test_client()
+			url = '/get'
+			response= client.get(url) 
+
+			self.assertEqual(response.get_data(),{"key":[0,1,2,3]})
+			self.assertEqual(response.status_code, 200)
