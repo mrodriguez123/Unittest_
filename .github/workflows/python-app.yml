@@ -34,6 +34,7 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest
+        pip install flask
         pytest "test.py"
         pytest "functions_test.py"
         pytest "app_json_test.py"
