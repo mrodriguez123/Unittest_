@@ -14,7 +14,7 @@ class TestMain(unittest.TestCase):
     		url = '/'
     		response= client.get(url)
 
-    		self.assertEqual(response.get_data(), b'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML[193 chars]p>\n' )
+    		self.assertEqual(response.get_data(),  dictionary)
     		self.assertEqual(response.status_code, 200)
 
 	def test_index_get(self):
