@@ -35,7 +35,6 @@ jobs:
       run: |
         pip install pytest
         pip install flask
-        pip install Flask-Testing
         pytest "test.py"
         pytest "functions_test.py"
-        pytest "test_app.py"
+      
