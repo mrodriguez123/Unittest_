@@ -2,7 +2,10 @@ import unittest, pytest
 from flask import Flask, request
 import app_json
 import urllib.request as urllib2
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6cd656f4e758b3d9b583211fd80d95da8926fe74
 
 dictionary= { "name": " Monica",
     	"school": " University of Wisconsin",
