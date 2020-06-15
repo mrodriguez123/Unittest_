@@ -1,7 +1,7 @@
 import unittest, pytest
 from wsgiref.simple_server import make_server
 import app
-import urllib.request
+import urllib2.request
 
 class TestMain(unittest.TestCase):
 
