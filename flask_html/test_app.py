@@ -1,6 +1,7 @@
 import unittest
 import app
 import urllib.request
+from urllib.request import urlopen
 from flask import Flask
 from flask_testing import TestCase, LiveServerTestCase
 
