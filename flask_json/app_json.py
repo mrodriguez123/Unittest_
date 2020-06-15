@@ -1,6 +1,11 @@
 from flask import Flask, request, jsonify
 app = Flask(__name__)
 
+# sent the post with postman app- sends json 
+dictionary= { "name": " Monica",
+    	"school": " University of Wisconsin",
+    	"sports": " rowing" }
+
 @app.route('/', methods= ['POST'])
 def index_post():
 	facts= {}
@@ -12,7 +17,8 @@ def index_post():
 @app.route('/get', methods= ['GET'])
 def index_get():
 	result= 'result'
-	return jsonify({'key' : [0,1,2,3]})
+	{'key' : [0,1,2,3]}
+	return jsonify(sucess=True)
 
 
 if __name__ == '__main__':
