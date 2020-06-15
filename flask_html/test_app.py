@@ -3,6 +3,8 @@ import app
 import urllib.request
 from flask import Flask
 from flask_testing import TestCase, LiveServerTestCase
+import urllib.request as urllib2
+
 
 class MyTest(TestCase):
     def create_app(self):

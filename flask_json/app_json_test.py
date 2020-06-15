@@ -1,6 +1,8 @@
 import unittest, pytest
 from flask import Flask, request
 import app_json
+import urllib.request as urllib2
+
 
 dictionary= { "name": " Monica",
     	"school": " University of Wisconsin",
