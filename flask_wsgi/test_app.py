@@ -1,10 +1,9 @@
 import unittest, pytest
 from wsgiref.simple_server import make_server
 import app
+from flask import Flask
 from flask_testing import TestCase, LiveServerTestCase
 import urllib.request as urllib2
-
-
 
 class MyTest(TestCase):
     def create_app(self):
