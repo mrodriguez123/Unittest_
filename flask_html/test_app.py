@@ -1,7 +1,13 @@
 import unittest
 import app
-import urllib.request
-from urllib.request import urlopen
+
+try:
+    # For Python 3.0 and later
+    from urllib.request import urlopen
+except ImportError:
+    # Fall back to Python 2's urllib2
+    from urllib2 import urlopen
+    
 from flask import Flask
 from flask_testing import TestCase, LiveServerTestCase
 
