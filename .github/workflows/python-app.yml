@@ -38,4 +38,5 @@ jobs:
         pytest "test.py"
         pytest "functions_test.py"
         pytest "flask_html/test_html.py"
+        pytest "flask_json/test_json.py"
       
