@@ -37,4 +37,5 @@ jobs:
         pip install flask
         pytest "test.py"
         pytest "functions_test.py"
+        pytest "test_html.py"
       
