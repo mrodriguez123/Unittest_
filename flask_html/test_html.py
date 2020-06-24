@@ -9,11 +9,7 @@ class FlaskTestCase(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.get('/', content_type='html/text')
         self.assertEqual(response.status_code, 200)
-
-    def test_index_msg(self):
-    	tester = app.test_client(self)
-    	response = tester.get('/')
-    	self.assertIn(b'Hello World!!!', response.data)
+        self.assertIn(b'Hello World!!!', response.data)
 
     def test_home(self):
         tester = app.test_client(self)
@@ -24,12 +20,31 @@ class FlaskTestCase(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.get('/about', content_type='html/text')
         self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Welcome! Please go to the login Page at /login', response.data)
+
+    def test_login_page_loads(self):
+        tester = app.test_client(self)
+        response = tester.get('/login')
+        self.assertIn(b'Please login', response.data)
+
+    def test_correct_login(self):
+        tester = app.test_client()
+        response = tester.post(
+            '/login',
+            data=dict(username="moni", password="moni"),
+            follow_redirects=True
+        )
+
+    def test_incorrect_login(self):
+        tester = app.test_client()
+        response = tester.post(
+            '/login',
+            data=dict(username="wrong", password="wrong"),
+            follow_redirects=True
+        )
+        self.assertIn(b'Invalid Login Information', response.data)
 
 
-    def test_about_msg(self):
-    	tester = app.test_client(self)
-    	response = tester.get('/about')
-    	self.assertIn(b'Welcome! Please go to the login Page at /login', response.data)
 
 if __name__ == '__main__':
     unittest.main()
