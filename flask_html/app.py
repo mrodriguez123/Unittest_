@@ -1,9 +1,10 @@
-from flask import Flask , render_template
+from flask import Flask, render_template, redirect, url_for, request
 app = Flask(__name__)
 
 # __name__ is name of module = __main__
 # so flask knows where to find things
 # https://stackoverflow.com/questions/17309889/how-to-debug-a-flask-app
+# https://github.com/realpython/discover-flask/blob/part2/app.py
 
 posts= [
 {
@@ -27,7 +28,7 @@ def index():
 	#headers = [('Content-type', 'text/html; charset=utf-8')]
 	#response(status,headers)
 
-	return 'Hello World'
+	return 'Hello World!!!'
 
 @app.route('/home')
 def home():
@@ -37,7 +38,17 @@ def home():
 # /about
 @app.route("/about")
 def about():
-	return render_template('about.html', title= "About") # specify title
+	return render_template('about.html', title= "About") # specify title\
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'moni' or request.form['password'] != 'moni':
+            error = 'Invalid Login Information'
+        else:
+            return redirect(url_for('home'))
+    return render_template('login.html', error=error)
 
 
 # only true when ran directly from py

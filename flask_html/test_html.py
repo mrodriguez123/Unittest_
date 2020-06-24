@@ -13,7 +13,7 @@ class FlaskTestCase(unittest.TestCase):
     def test_index_msg(self):
     	tester = app.test_client(self)
     	response = tester.get('/')
-    	self.assertIn(b'Hello World', response.data)
+    	self.assertIn(b'Hello World!!!', response.data)
 
     def test_home(self):
         tester = app.test_client(self)
@@ -29,7 +29,7 @@ class FlaskTestCase(unittest.TestCase):
     def test_about_msg(self):
     	tester = app.test_client(self)
     	response = tester.get('/about')
-    	self.assertIn(b'About Page', response.data)
+    	self.assertIn(b'Welcome! Please go to the login Page at /login', response.data)
 
 if __name__ == '__main__':
     unittest.main()
