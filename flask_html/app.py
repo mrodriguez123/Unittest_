@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
+import requests
 app = Flask(__name__)
 
 # __name__ is name of module = __main__
@@ -49,6 +50,15 @@ def login():
         else:
             return redirect(url_for('home'))
     return render_template('login.html', error=error)
+
+
+information = {'name': 'Moni', 'school': 'University of Wisconsin'}
+r = requests.post('https://httpbin.org/post', data= information)
+
+def post_text():
+	reply = r.text
+	form = r_dict['form']
+	return form
 
 
 # only true when ran directly from py

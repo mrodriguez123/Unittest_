@@ -1,3 +1,4 @@
+import app
 from app import app
 import unittest
 
@@ -43,6 +44,12 @@ class FlaskTestCase(unittest.TestCase):
             follow_redirects=True
         )
         self.assertIn(b'Invalid Login Information', response.data)
+
+
+class TestMain(unittest.TestCase):
+    def test_post_text(self):
+        self.assertEqual(app.post_text(), r_dict['form'])        
+
 
 
 
