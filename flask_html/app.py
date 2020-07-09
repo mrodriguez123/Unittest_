@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, url_for, request
-import requests
 app = Flask(__name__)
 
 # __name__ is name of module = __main__
