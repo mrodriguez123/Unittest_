@@ -52,14 +52,6 @@ def login():
     return render_template('login.html', error=error)
 
 
-information = {'name': 'Moni', 'school': 'University of Wisconsin'}
-r = requests.post('https://httpbin.org/post', data= information)
-
-def post_text():
-	reply = r.text
-	form = r_dict['form']
-	return form
-
 
 # only true when ran directly from py
 if __name__ == '__main__':

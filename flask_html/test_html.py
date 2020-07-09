@@ -46,12 +46,6 @@ class FlaskTestCase(unittest.TestCase):
         self.assertIn(b'Invalid Login Information', response.data)
 
 
-class TestMain(unittest.TestCase):
-    def test_post_text(self):
-        self.assertEqual(app.post_text(), r_dict['form'])        
-
-
-
 
 if __name__ == '__main__':
     unittest.main()
